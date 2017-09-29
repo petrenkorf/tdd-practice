@@ -74,6 +74,7 @@ class Breadcrumbs
             return '#';
         }
 
+        //TODO passar parametros para rota principal do recurso
         if ($this->router->has("$item.index")) {
             return "$item.index"; 
         }

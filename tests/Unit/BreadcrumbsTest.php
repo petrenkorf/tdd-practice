@@ -135,7 +135,7 @@ class BreadcrumbsTest extends TestCase
     }
 
     /** @test */
-    public function should_get_title_from_last_fragment_model_when_fragment_is_number()
+    public function should_get_title_from_last_component_model_when_component_is_number()
     {
 
     }
