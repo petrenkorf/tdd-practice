@@ -29,25 +29,25 @@ class Breadcrumbs
         $this->router  = $router;  
     }
 
-    public function getPathFragments()
+    public function getPathComponents()
     {
-        $fragments = explode('/', $this->request->path());
-        $fragments = array_filter($fragments, [$this, 'filterFragments']);
-        $fragments = array_values($fragments); 
+        $components = explode('/', $this->request->path());
+        $components = array_filter($components, [$this, 'filterComponents']);
+        $components = array_values($components); 
         
-        return $fragments;
+        return $components;
     }
 
-    protected function filterFragments($item)
+    protected function filterComponents($item)
     {
         return (bool)strlen($item) && $item != 'sistema';
     }
 
     public function getLinks()
     {
-        $fragments = $this->getPathFragments();
-        $titles    = array_map([$this, 'getTitle'], $fragments);
-        $routes    = array_map([$this, 'getRoute'], $fragments);
+        $components = $this->getPathComponents();
+        $titles    = array_map([$this, 'getTitle'], $components);
+        $routes    = array_map([$this, 'getRoute'], $components);
 
         return array_combine($titles, $routes);
     }

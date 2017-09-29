@@ -64,11 +64,11 @@ class BreadcrumbsTest extends TestCase
     }
     
     /** @test */
-    public function should_return_request_path_fragments_without_system_fragment()
+    public function should_return_request_path_components_without_system_fragment()
     {
         $this->request->shouldReceive('path')->andReturn('/sistema/administrators');
    
-        $result = $this->breadcrumbs->getPathFragments();
+        $result = $this->breadcrumbs->getPathComponents();
 
         $this->assertInternalType('array', $result);
         $this->assertEquals(['administrators'], $result);
